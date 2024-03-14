@@ -1,0 +1,12 @@
+ .right-sidebar {
+       position: fixed;
+       top: 0;
+       bottom: 0;
+       right: 0; /* Changed from left: 0; to right: 0; */
+       z-index: 100;
+       padding: 10px; /* Adjusted padding as needed */
+       background-color: #141e33;
+       color: #fff;
+       width: 320px;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}

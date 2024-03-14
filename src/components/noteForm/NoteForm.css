@@ -1,0 +1,59 @@
+/* NoteForm.css */
+
+.date-picker-wrapper {
+    position: relative;
+    width:100%;
+  }
+  
+  .calendar-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .form-control,
+.form-select,
+.react-datepicker-wrapper {
+  background-color: #141e33;
+  color: #fff; /* Text color */
+}
+
+/* Apply styles to the date picker */
+.custom-date-picker {
+  width: 230%;
+  background-color: #141e33;
+  color: white;
+}
+
+/* Apply background color to buttons */
+/* Apply background color to buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  background-color: #007bff; /* Blue */
+  border-color: #007bff;
+  margin-right: 10px;
+}
+
+.clear-btn {
+  background-color: #dc3545; /* Red */
+  border-color: #dc3545;
+  margin-left: 10px;
+}
+
+/* Apply background color to buttons when hovering */
+.submit-btn:hover {
+  background-color: #0056b3; /* Darker Blue */
+  border-color: #0056b3;
+}
+
+.clear-btn:hover {
+  background-color: #c82333; /* Darker Red */
+  border-color: #c82333;
+}
