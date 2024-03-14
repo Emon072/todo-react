@@ -1,0 +1,46 @@
+.card {
+    background-color: #ebb639;
+    border: none;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    font-weight: 1.5rem;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+.card-title{
+    color: aliceblue;
+    font-size: large;
+}
+
+.card-description{
+    color: purple;
+}
+
+hr {
+  border: none;
+  border-top: 3px dotted black;
+}
+
+.card .btn {
+  border-radius: 30px; /* You can adjust the value to make the corners more or less round */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: none;
+}
+
+.float-end i {
+  padding: 5px;
+  color: purple;
+}
+
+.directory-style{
+  margin-left: 80%;
+  width: fit-content;
+  padding: 6px;
+  background-color: #141e33;
+}
