@@ -1,13 +1,15 @@
 import React from "react";
-import "./Navbar.scss";
+import "./Navbar.css";
+import useNoteStore from "../store/NoteStore"
 
 
-const DirectoryList = ["Main"];
 
 function Navbar(props) {
+  const {DirectoryList} = useNoteStore();
+  
   return (
-        <div className="sidebar">
-          <div className="sidebar-brand">
+        <>
+        <div className="sidebar-brand">
             <div className="d-flex justify-content-center">TODO</div>
             <button className="btn btn-primary new-task-btn" onClick={props.toggleModal}>New Task</button>
           </div>
@@ -35,7 +37,7 @@ function Navbar(props) {
               </li>
               <li className="nav-item">
                 <a className="nav-link">
-                  <i className="fas fa-envelope"></i> Uncompleted tasks
+                  <i className="fas fa-envelope"></i> Pending tasks
                 </a>
               </li>
               <li className="nav-item dropdown">
@@ -64,7 +66,9 @@ function Navbar(props) {
               </li>
             </ul>
           </div>
-        </div>
+        </>
+          
+      
   );
 }
 

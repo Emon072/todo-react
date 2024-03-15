@@ -1,8 +1,6 @@
 .card {
-    background-color: #ebb639;
     border: none;
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
     font-weight: 1.5rem;
   }
   
@@ -16,7 +14,7 @@
 }
 
 .card-description{
-    color: purple;
+    color: #dffff0;
 }
 
 hr {
@@ -31,11 +29,13 @@ hr {
   padding-top: 1px;
   padding-bottom: 1px;
   border: none;
+  cursor: pointer;
 }
 
 .float-end i {
   padding: 3px;
   color: purple;
+  cursor: pointer;
 }
 
 .directory-style{

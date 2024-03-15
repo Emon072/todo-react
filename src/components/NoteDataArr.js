@@ -8,7 +8,7 @@ export const NoteDataArr = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit, ",
       dueDate: new Date().toISOString(),
       completed: false,
-      important: 3,
+      important: 2,
       updateTime: new Date().toISOString(),
     },
     {
@@ -28,7 +28,7 @@ export const NoteDataArr = [
       description: "Testing purpose",
       dueDate: new Date().toISOString(),
       completed: true,
-      important: 3,
+      important: 1,
       updateTime: new Date().toISOString(),
     },
     {
@@ -48,8 +48,8 @@ export const NoteDataArr = [
       description: "Testing purpose",
       dueDate: new Date().toISOString(),
       completed: true,
-      important: 3,
+      important: 2,
       updateTime: new Date().toISOString(),
-    },
+    }
   ];
   

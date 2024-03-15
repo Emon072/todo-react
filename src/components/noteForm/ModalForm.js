@@ -1,8 +1,7 @@
 // ModalForm.js
 
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import './ModalForm.css' // Import the style.css file
 
 function ModalForm(props) {
