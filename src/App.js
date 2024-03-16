@@ -1,9 +1,9 @@
 import "./App.css";
-import Home from "./components/home/Home";
+import Search from "./components/search/Search";
 
 function App() {
   return (
-    <Home></Home>
+    <Search></Search>
   );
 }
 

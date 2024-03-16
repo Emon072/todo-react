@@ -18,8 +18,6 @@ function NoteForm(props) {
 
   // ----------------------- this function is for reset the field ------------------------
 
-  useEffect(() => reset(), [])
-
   const reset = ()=>{
     setnote(
       props.defaultNote.id? props.defaultNote : {
@@ -35,6 +33,7 @@ function NoteForm(props) {
     )
     console.log(note);
   }
+  useEffect(() => reset(), [])
 
   //------------------------ handeling the input changes ---------------------------
 

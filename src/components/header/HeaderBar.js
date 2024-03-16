@@ -1,0 +1,94 @@
+import React, { useState, useEffect } from "react";
+import "./HeaderBar.css";
+import { FormControl, InputGroup } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import useSearchStore from "../store/SearchStore";
+
+function HeaderBar({ headerText }) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const {updateSearchObj} = useSearchStore();
+
+  useEffect(() => {
+    // Update current time every second
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    // Clear the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+    // console.log("Search query:", event.target.value);
+    let updatedObj = {
+      todayTask: false,
+      allTask: false,
+      important: false,
+      completed: false,
+      pending: false,
+      directory: null,
+      search : event.target.value
+    }
+    if (updatedObj.search===""){
+      updatedObj = {...updatedObj , allTask: true , search : null}
+    }
+    updateSearchObj(updatedObj);
+  };
+  const now = 60;
+
+  return (
+    <>
+      <div className="header-style container-fluid">
+        <div className="row">
+          <InputGroup className="col md-4">
+            <InputGroup.Text
+              style={{
+                backgroundColor: "#141e33",
+                border: "none",
+                color: "white",
+              }}
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </InputGroup.Text>
+            <FormControl
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+              style={{ color: "white" }} // Change placeholder color to white
+            />
+          </InputGroup>
+          <div className="col-md-4 d-flex align-items-center justify-content-center">
+            <ProgressBar
+              animated
+              now={now}
+              variant="warning"
+              label={`Completed ${now}%`}
+              className="w-100 custom-progress-bar" // Apply custom class for additional styles
+              style={{
+                backgroundColor: "#141e33",
+                height: "25px",
+                fontWeight: "bold",
+              }}
+            />
+          </div>
+          <div className="col md-4 d-flex align-items-center justify-content-center">
+            <span style={{ color: "aqua", fontSize: "20px" }}>
+              {`${currentTime.toLocaleTimeString()}`}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="header-text-design">
+        {headerText}
+      </div>
+      <hr></hr>
+    </>
+  );
+}
+
+export default HeaderBar;

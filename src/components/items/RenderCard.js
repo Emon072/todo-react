@@ -37,7 +37,7 @@ function RenderCard({ item, updateNote, deleteNote }) {
   }
 
   return (
-    <div key={item.id} className="col-md-4 mb-4">
+    <div key={item.id} className="col-md-2 mb-4" style={{minWidth:'283px'}}>
       <div className="directory-style">{item.dir}</div>
       <div
         className="card"

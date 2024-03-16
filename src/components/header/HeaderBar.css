@@ -1,0 +1,29 @@
+.header-style{
+    padding-top: 10px;
+    height: 50px;
+    /* background-color: white; */
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 0.7;
+}
+
+.custom-progress-bar .progress-bar {
+    /* height: 30px; Adjust the height as needed */
+    color: purple;
+    background-color: transparent;
+  }
+
+.header-text-design{
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 1.6rem;
+    margin-top: 20px;
+    height: fit-content;
+    color: rgb(167, 163, 163);
+}
+hr {
+    padding-top: 5px;
+    border: none;
+    border-top: 3px dotted black;
+  }

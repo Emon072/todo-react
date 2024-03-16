@@ -1,11 +1,53 @@
 import React from "react";
 import "./Navbar.css";
 import useNoteStore from "../store/NoteStore"
-
-
+import useSearchStore from '../store/SearchStore'
 
 function Navbar(props) {
   const {DirectoryList} = useNoteStore();
+  const {updateSearchObj, updateSearchLabel} = useSearchStore();
+
+// ------------ this is for testing purpose -------------------------
+  const handleClick = (e)=>{
+    const value  = e.currentTarget.getAttribute("value");
+    let updatedObj = {
+      todayTask: false,
+      allTask: false,
+      important: false,
+      completed: false,
+      pending: false,
+      directory: null,
+      search : null
+    }
+    switch (value) {
+      case "today":
+        updatedObj = {...updatedObj , todayTask : true};
+        updateSearchLabel("Today's Tasks : ")
+        break;
+      case "all":
+        updatedObj = {...updatedObj , allTask : true};
+        updateSearchLabel("All Tasks : ")
+        break
+      case "important":
+        updatedObj = {...updatedObj , important : true};
+        updateSearchLabel("Sorted by Importance : ")
+        break
+      case "completed":
+        updatedObj = {...updatedObj , completed : true};
+        updateSearchLabel("Completed Tasks : ")
+        break
+      case "pending":
+        updatedObj = {...updatedObj , pending : true};
+        updateSearchLabel("Pending Tasks : ")
+        break
+      default:
+        updatedObj = {...updatedObj , directory : value};
+        updateSearchLabel(`${value} Directory Result : `)
+        break;
+    }
+    updateSearchObj(updatedObj);
+  }
+
   
   return (
         <>
@@ -15,27 +57,27 @@ function Navbar(props) {
           </div>
           <div className="sidebar-nav">
             <ul className="nav flex-column">
-              <li className="nav-item">
-                <a className="nav-link active">
-                  <i className="fas fa-home"></i> Today's tasks
-                </a>
+              <li className="nav-item" onClick={handleClick} value="today">
+                  <a className="nav-link active">
+                    <i className="fas fa-home"></i> Today's tasks
+                  </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleClick} value="all">
                 <a className="nav-link">
                   <i className="fas fa-info-circle"></i> All tasks
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleClick} value="important">
                 <a className="nav-link">
                   <i className="fas fa-cogs"></i> Important tasks
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleClick} value="completed">
                 <a className="nav-link">
                   <i className="fas fa-envelope"></i> Completed tasks
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleClick} value="pending">
                 <a className="nav-link">
                   <i className="fas fa-envelope"></i> Pending tasks
                 </a>
@@ -55,7 +97,7 @@ function Navbar(props) {
                     {
                       DirectoryList.map((list , i)=>{
                         return (
-                          <a className="dropdown-item" style={{color: 'white'}}>
+                          <a className="dropdown-item" style={{color: 'white' , backgroundColor:'transparent'}} onClick={handleClick} value={list}>
                             {list}
                           </a>
                         )
