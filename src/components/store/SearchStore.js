@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 
 const useSearchStore = create((set) => ({
-  SearchLabel : "All Task : ",
+  SearchLabel : "All Tasks : ",
   SearchObj: {
-    todayTask: false,
+    todayTask: null,
     allTask: true,
     important: false,
     completed: false,

@@ -5,11 +5,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import useSearchStore from "../store/SearchStore";
+import useNoteStore from "../store/NoteStore";
 
 function HeaderBar({ headerText }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentTime, setCurrentTime] = useState(new Date());
-  const {updateSearchObj} = useSearchStore();
+  const {updateSearchObj, updateSearchLabel} = useSearchStore();
+  const [progressCount, setprogressCount] = useState(0);
+  const {NoteDataArr} = useNoteStore();
+
+  useEffect(() => {
+    let cnt = NoteDataArr.reduce((sum , cur)=>{
+      return sum+= cur.completed ? 1 : 0;
+    }, 0);
+    setprogressCount(cnt);
+  
+  }, [NoteDataArr])
+  
 
   useEffect(() => {
     // Update current time every second
@@ -22,10 +34,11 @@ function HeaderBar({ headerText }) {
   }, []);
 
   const handleSearchInputChange = (event) => {
+    updateSearchLabel("Search Results : ")
     setSearchQuery(event.target.value);
     // console.log("Search query:", event.target.value);
     let updatedObj = {
-      todayTask: false,
+      todayTask: null,
       allTask: false,
       important: false,
       completed: false,
@@ -38,7 +51,7 @@ function HeaderBar({ headerText }) {
     }
     updateSearchObj(updatedObj);
   };
-  const now = 60;
+
 
   return (
     <>
@@ -65,9 +78,9 @@ function HeaderBar({ headerText }) {
           <div className="col-md-4 d-flex align-items-center justify-content-center">
             <ProgressBar
               animated
-              now={now}
+              now={progressCount * 100/ NoteDataArr.length}
               variant="warning"
-              label={`Completed ${now}%`}
+              label={`Completed ${progressCount * 100/ NoteDataArr.length}%`}
               className="w-100 custom-progress-bar" // Apply custom class for additional styles
               style={{
                 backgroundColor: "#141e33",

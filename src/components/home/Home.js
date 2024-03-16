@@ -15,6 +15,7 @@ function Home({NoteDataArr}) {
   const {SearchLabel} = useSearchStore();
   const [defaultNote, setdefaultNote] = useState({});
   
+  
 
   const [showModal, setshowModal] = useState(false);
   const toggleModal = ()=> {
@@ -33,10 +34,6 @@ function Home({NoteDataArr}) {
 
 
 
-  // this is for Headerbar Heading
-  // const headerText = "Today Total Task : ";
-
-
   return (
     <div className="container-fluid">
 
@@ -50,7 +47,7 @@ function Home({NoteDataArr}) {
         </div>
         <div className="col" style={{minWidth:'850px'}}>
 
-          <HeaderBar headerText = {SearchLabel}></HeaderBar>
+          <HeaderBar headerText = {`${SearchLabel}  ${NoteDataArr.length}`}></HeaderBar>
           
           <div className="row d-flex align-items-center">
             {NoteDataArr.map((item, i) => {

@@ -14,13 +14,11 @@ function Search() {
 
     switch (findTrueProperty()) {
       case 'todayTask':
-        // Filter tasks for today
-        const today = new Date().toISOString().split('T')[0];
+        console.log(NoteDataArr[0].dueDate);
         filteredNoteArr = NoteDataArr.filter(note => {
           if (typeof note.dueDate === 'string') {
-            return note.dueDate.split('T')[0] === today;
+            return note.dueDate === SearchObj.todayTask;
           } else {
-            // Handle cases where note.dueDate is not a string
             return false;
           }
         });
@@ -30,10 +28,8 @@ function Search() {
         filteredNoteArr = NoteDataArr;
         break;
       case 'important':
-        // Sort NoteDataArr based on the important property
         filteredNoteArr = [...NoteDataArr].sort((a, b) => {
-          // Sorting logic: Sort by the value of the important property
-          return b.important - a.important; // Sort in descending order (important tasks first)
+          return b.important - a.important; 
         });
         break;
       case 'completed':

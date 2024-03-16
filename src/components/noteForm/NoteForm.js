@@ -25,7 +25,7 @@ function NoteForm(props) {
         title: '',
         dir: "Main",
         description: "",
-        dueDate: new Date().toISOString(),
+        dueDate: "",
         completed: false,
         important: 1,
         updateTime: new Date().toISOString()
@@ -50,7 +50,16 @@ function NoteForm(props) {
   };
 
   const handleDateChange = (date) => {
-    setnote({...note , dueDate:date});
+    // Extract day, month, and year components from the date
+    const day = date.getDate();
+    const month = date.getMonth() + 1; // Adding 1 to get the correct month (January is 0-indexed)
+    const year = date.getFullYear();
+  
+    // Format the date as "month/day/year"
+    const formattedDate = `${month}/${day}/${year}`;
+  
+    // Set the formatted date in the note state
+    setnote({ ...note, dueDate: formattedDate });
   };
 
   const handleCompletionStatusChange = (event) => {
