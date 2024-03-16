@@ -7,7 +7,7 @@ export const NoteDataArr = [{
   "completed": true,
   "important": 1,
   "updateTime": "6/23/2023",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "3efb04e3-a3f8-4386-8cf1-62602336f8ad",
   "title": "Developer III",
@@ -34,7 +34,7 @@ export const NoteDataArr = [{
   "completed": true,
   "important": 2,
   "updateTime": "8/28/2023",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "ee162e9b-b8aa-45f1-9263-3053842dba6e",
   "title": "Editor",
@@ -52,7 +52,7 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 1,
   "updateTime": "6/10/2023",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "fae8f948-8c79-47ae-8f06-5cf90aebdd8d",
   "title": "Actuary",
@@ -79,7 +79,7 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 2,
   "updateTime": "7/18/2023",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "e950b0c2-eeed-4b45-99a3-5c7b0fe3f379",
   "title": "Recruiter",
@@ -88,7 +88,7 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 2,
   "updateTime": "2/25/2024",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "dae3de2d-0716-414f-97fe-8e8a4f7b3cad",
   "title": "Automation Specialist IV",
@@ -106,7 +106,7 @@ export const NoteDataArr = [{
   "completed": true,
   "important": 3,
   "updateTime": "8/24/2023",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "eab82fc6-df3b-4b78-b1fb-e2b9f5650984",
   "title": "Food Chemist",
@@ -115,7 +115,7 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 3,
   "updateTime": "4/21/2023",
-  "dir": "Main"
+  "dir": "Job"
 }, {
   "id": "eeace2ac-c42c-45ac-89b3-c271a5c1d5db",
   "title": "Cost Accountant",
@@ -124,7 +124,7 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 1,
   "updateTime": "3/15/2024",
-  "dir": "Main"
+  "dir": "Study"
 }, {
   "id": "d42a5588-fef7-44e3-a4c3-44565bbd29b1",
   "title": "Registered Nurse",
@@ -142,7 +142,7 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 3,
   "updateTime": "12/8/2023",
-  "dir": "Main"
+  "dir": "Study"
 }, {
   "id": "04217165-609f-40a1-aa05-6d6c4ec8e200",
   "title": "Financial Advisor",
@@ -160,7 +160,7 @@ export const NoteDataArr = [{
   "completed": true,
   "important": 3,
   "updateTime": "3/23/2023",
-  "dir": "Main"
+  "dir": "Study"
 }, {
   "id": "54f4d893-4274-46bb-a39b-5f679ad2115e",
   "title": "Senior Editor",
@@ -178,5 +178,5 @@ export const NoteDataArr = [{
   "completed": false,
   "important": 1,
   "updateTime": "7/31/2023",
-  "dir": "Main"
+  "dir": "Study"
 }];
