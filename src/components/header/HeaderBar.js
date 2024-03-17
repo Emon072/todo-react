@@ -55,9 +55,9 @@ function HeaderBar({ headerText }) {
 
   return (
     <>
-      <div className="header-style container-fluid">
-        <div className="row">
-          <InputGroup className="col md-4">
+      <div className="header-style container-fluid" >
+        <div className="row" >
+          <InputGroup className="col md-4" style={{paddingBottom:'5px'}}>
             <InputGroup.Text
               style={{
                 backgroundColor: "#141e33",

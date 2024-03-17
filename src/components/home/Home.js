@@ -59,6 +59,7 @@ function Home({NoteDataArr}) {
         <div className="col-md-2 sidebar">
           <Navbar toggleModal = {toggleModal}></Navbar>
         </div>
+
         <div className="col-md-7" style={{ minWidth: `${minWidth}px` }}>
 
           <HeaderBar headerText = {`${SearchLabel}  ${NoteDataArr.length}`}></HeaderBar>
