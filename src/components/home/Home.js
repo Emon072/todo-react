@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import RenderCard from "../items/RenderCard";
 import Calender from "../calender/Calender";
@@ -45,7 +45,7 @@ function Home({NoteDataArr}) {
         <div className="col-md-2 sidebar">
           <Navbar toggleModal = {toggleModal}></Navbar>
         </div>
-        <div className="col" style={{minWidth:'850px'}}>
+        <div className="col-md-7" style={{minWidth:'850px'}}>
 
           <HeaderBar headerText = {`${SearchLabel}  ${NoteDataArr.length}`}></HeaderBar>
           
@@ -56,8 +56,8 @@ function Home({NoteDataArr}) {
           </div>
         </div>
 
-        <div className="col d-flex align-items-center justify-content-center" style={{ backgroundColor: "#141e33"}}>
-          <div className="right-sidebar" style={{ height: "100%" }}>
+        <div className="col d-flex justify-content-center" style={{ backgroundColor: "#141e33"}}>
+          <div className="right-sidebar">
             <Calender></Calender>
           </div>
         </div>
