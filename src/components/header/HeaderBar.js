@@ -96,7 +96,7 @@ function HeaderBar({ headerText }) {
           </div>
         </div>
       </div>
-      <div className="header-text-design">
+      <div className="header-text-design" style={{paddingTop:'20px' , paddingBottom:'10px'}}>
         {headerText}
       </div>
       <hr></hr>

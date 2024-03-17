@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import Navbar from "../navbar/Navbar";
 import RenderCard from "../items/RenderCard";
 import Calender from "../calender/Calender";
@@ -14,6 +14,20 @@ function Home({NoteDataArr}) {
   const {deleteNote} = useNoteStore();
   const {SearchLabel} = useSearchStore();
   const [defaultNote, setdefaultNote] = useState({});
+
+  const [displayWidth, setDisplayWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setDisplayWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const minWidth = Math.min(850, displayWidth*0.7);
   
   
 
@@ -45,7 +59,7 @@ function Home({NoteDataArr}) {
         <div className="col-md-2 sidebar">
           <Navbar toggleModal = {toggleModal}></Navbar>
         </div>
-        <div className="col-md-7" style={{minWidth:'850px'}}>
+        <div className="col-md-7" style={{ minWidth: `${minWidth}px` }}>
 
           <HeaderBar headerText = {`${SearchLabel}  ${NoteDataArr.length}`}></HeaderBar>
           
