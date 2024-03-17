@@ -1,7 +1,7 @@
  .right-sidebar {
        right: 0; /* Changed from left: 0; to right: 0; */
        z-index: 100;
-       padding: 10px; 
+       padding: 0px; 
        background-color: #141e33;
        color: #fff;
        /* width: fit-content; */
