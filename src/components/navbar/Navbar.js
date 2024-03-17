@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import useNoteStore from "../store/NoteStore";
 import useSearchStore from "../store/SearchStore";
+import { Button, Card, Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import AddDirectoryModal from "../addDirectory/AddDirectoryModal";
 
 function Navbar(props) {
-  const { DirectoryList } = useNoteStore();
+  const { DirectoryList , addNewDir} = useNoteStore();
   const { updateSearchObj, updateSearchLabel } = useSearchStore();
+  const [showDirectory, setshowDirectory] = useState(false);
+  const [newDirectoryName, setnewDirectoryName] = useState("");
 
   // ------------ this is for testing purpose -------------------------
   const handleClick = (e) => {
@@ -25,7 +31,7 @@ function Navbar(props) {
         const day = currentDate.getDate();
         const month = currentDate.getMonth() + 1; // Adding 1 to get the correct month (January is 0-indexed)
         const year = currentDate.getFullYear();
-        
+
         // Format the date as "month/day/year"
         const formattedDate = `${month}/${day}/${year}`;
 
@@ -57,8 +63,44 @@ function Navbar(props) {
     updateSearchObj(updatedObj);
   };
 
+  // ----------------------- this is for adding new directory -------------------------
+  const addNewDirectory = () => {
+    setshowDirectory(true);
+  };
+  const handleDirectoryChange = (e) => {
+    setnewDirectoryName(e.target.value);
+  }
+  const handleSubmit = () =>{
+    if (newDirectoryName){
+      addNewDir(newDirectoryName);
+      setnewDirectoryName("");
+      setshowDirectory(false);
+    }
+  }
+  const handleClear = () =>{
+    setnewDirectoryName("");
+  }
+
   return (
     <>
+      <AddDirectoryModal showDirectory={showDirectory} setshowDirectory = {setshowDirectory} setnewDirectoryName= {setnewDirectoryName}>
+        <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Directory Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Directory Name"
+              value={newDirectoryName}
+              onChange={handleDirectoryChange}
+            />
+          </Form.Group>
+          <div className="button-container">
+            <Button variant="primary" onClick={handleSubmit} className="submit-btn">Submit</Button>
+            <Button variant="secondary" onClick={handleClear} className="clear-btn">Clear</Button>
+          </div>
+        </Form>
+      </AddDirectoryModal>
+
       <div className="sidebar-brand">
         <div className="d-flex justify-content-center">TODO</div>
         <button
@@ -124,6 +166,12 @@ function Navbar(props) {
                     </a>
                   );
                 })}
+                <Button className="plus_design" onClick={addNewDirectory}>
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    style={{ color: "white", padding: "8px" }}
+                  />
+                </Button>
               </li>
             </ul>
           </li>

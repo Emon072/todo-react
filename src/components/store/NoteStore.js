@@ -4,6 +4,7 @@ import { NoteDataArr } from '../NoteDataArr';
 const useNoteStore = create((set) => ({
   NoteDataArr: NoteDataArr,
   DirectoryList: ['Main', 'Job', 'Study'],
+
   addNote: (note) => set((state) => ({
     NoteDataArr: [...state.NoteDataArr, note],
   })),
@@ -14,6 +15,9 @@ const useNoteStore = create((set) => ({
   })),
   deleteNote: (noteId) => set((state) => ({
     NoteDataArr: state.NoteDataArr.filter((note) => note.id !== noteId),
+  })),
+  addNewDir : (dir) => set((state) =>({
+    DirectoryList: [...state.DirectoryList , dir],
   })),
 }));
 

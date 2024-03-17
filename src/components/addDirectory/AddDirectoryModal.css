@@ -1,0 +1,21 @@
+/* style.css */
+
+.modal_custom {
+    border: none;
+    padding-top: 3%;
+    
+  }
+  
+  .model_header {
+    background-color: #0F172A;
+    border-bottom: none;
+    color: #fff;
+  }
+  
+  .modal-body {
+    background-color: #0F172A !important; /* Important to override Bootstrap's default */
+    color: #fff;
+  }
+  
+  /* Add more styles as needed */
+  

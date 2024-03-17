@@ -8,7 +8,7 @@ function ModalForm(props) {
   return (
       <Modal show={props.showModal} onHide={props.toggleModal} className="modal_custom">
         <Modal.Header closeButton className="model_header">
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Add New Note</Modal.Title>
         </Modal.Header>
         <Modal.Body>{props.children}</Modal.Body>
       </Modal>

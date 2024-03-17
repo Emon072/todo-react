@@ -61,3 +61,11 @@
    border: none;
    padding-left: 2rem;
  }
+
+ .plus_design{
+  border: 1px dotted grey;
+  background-color: transparent;
+  padding: -30px;
+  margin-top: 10px;
+  margin-left: 25px;
+ }
