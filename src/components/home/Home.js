@@ -64,14 +64,14 @@ function Home({NoteDataArr}) {
 
           <HeaderBar headerText = {`${SearchLabel}  ${NoteDataArr.length}`}></HeaderBar>
           
-          <div className="row d-flex align-items-center">
+          <div className="row d-flex justify-content-center">
             {NoteDataArr.map((item, i) => {
               return <RenderCard item={item} key={i} updateNote={updateNote} deleteNote = {deleteNote}></RenderCard>;
             })}
           </div>
         </div>
 
-        <div className="col d-flex justify-content-center" style={{ backgroundColor: "#141e33"}}>
+        <div className="col d-flex justify-content-center" style={{ backgroundColor: "#141e33", width: `${displayWidth*0.15}px`}}>
           <div className="right-sidebar">
             <Calender></Calender>
           </div>
