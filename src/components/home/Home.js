@@ -27,7 +27,7 @@ function Home({NoteDataArr}) {
     };
   }, []);
 
-  const minWidth = Math.min(850, displayWidth*0.7);
+  const minWidth = Math.min(200000,displayWidth*0.63);
   
   
 

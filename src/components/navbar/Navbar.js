@@ -158,7 +158,7 @@ function Navbar(props) {
                   return (
                     <a
                       className="dropdown-item"
-                      style={{ color: "white", backgroundColor: "transparent" }}
+                      style={{ color: "white", backgroundColor: "#0F172A" }}
                       onClick={handleClick}
                       value={list}
                     >
