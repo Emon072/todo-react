@@ -8,12 +8,14 @@ import useNoteStore from "../store/NoteStore"
 import './Home.css'
 import HeaderBar from "../header/HeaderBar";
 import useSearchStore from "../store/SearchStore";
+import useFilterStore from '../store/FilterStore';
 
 
 function Home({NoteDataArr}) {
   const {deleteNote} = useNoteStore();
   const {SearchLabel} = useSearchStore();
   const [defaultNote, setdefaultNote] = useState({});
+  const {FilterLabel} = useFilterStore();
 
   const [displayWidth, setDisplayWidth] = useState(window.innerWidth);
   
@@ -62,7 +64,7 @@ function Home({NoteDataArr}) {
 
         <div className="col-md-7" style={{ minWidth: `${minWidth}px` }}>
 
-          <HeaderBar headerText = {`${SearchLabel}  ${NoteDataArr.length}`}></HeaderBar>
+          <HeaderBar headerText = {FilterLabel?`${SearchLabel}  ${NoteDataArr.length } ` + FilterLabel:  `${SearchLabel}  ${NoteDataArr.length } `}></HeaderBar>
           
           <div className="row d-flex justify-content-center">
             {NoteDataArr.map((item, i) => {

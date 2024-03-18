@@ -139,8 +139,7 @@ function Navbar(props) {
           </li>
           <li className="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
-              href="#"
+              className="nav-link dropdown-toggle"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"

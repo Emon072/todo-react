@@ -23,6 +23,13 @@
     color: rgb(167, 163, 163);
 }
 hr {
+    /* padding-top: 10px; */
     border: none;
     border-top: 3px dotted black;
+  }
+
+  .filter-link {
+    border: 1px dotted black; /* Add a dotted border */
+    padding: 10px; /* Adjust padding for better visual alignment */
+    background-color: #141e33;
   }

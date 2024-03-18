@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Home from '../home/Home';
 import useNoteStore from '../store/NoteStore';
 import useSearchStore from "../store/SearchStore";
+import useFilterStore from '../store/FilterStore';
 
 function Search() {
   const { NoteDataArr } = useNoteStore();
   const { SearchObj } = useSearchStore();
   const [currentNoteArr, setCurrentNoteArr] = useState([]);
+  const [filterFinalNote, setfilterFinalNote] = useState([])
+  const {FilterObj} = useFilterStore();
 
   useEffect(() => {
     // Filtering according to the search field
@@ -14,7 +17,7 @@ function Search() {
 
     switch (findTrueProperty()) {
       case 'todayTask':
-        console.log(NoteDataArr[0].dueDate);
+        // console.log(NoteDataArr[0].dueDate);
         filteredNoteArr = NoteDataArr.filter(note => {
           if (typeof note.dueDate === 'string') {
             return note.dueDate === SearchObj.todayTask;
@@ -59,7 +62,11 @@ function Search() {
     }
 
     setCurrentNoteArr(filteredNoteArr);
+    
+    // filterFunction();
+    
   }, [NoteDataArr, SearchObj]);
+
 
   const findTrueProperty = () => {
     for (const key in SearchObj) {
@@ -70,9 +77,57 @@ function Search() {
     return null;
   };
 
+  //------------------------------ this section is for advance filter -------------------------------------------
+  useEffect(() => {
+    filterFunction();
+  }, [FilterObj , currentNoteArr])
+
+  // --- use the filtering function --------
+  function filterFunction(){
+    let filteredNoteArr = [];
+    switch (true) {
+      case FilterObj.NoFilter:
+        filteredNoteArr = [...currentNoteArr]
+        break;
+      case FilterObj.ImportanceASC:
+        filteredNoteArr = [...currentNoteArr].sort((a, b) => {
+          return b.important - a.important; 
+        });
+        break;
+      case FilterObj.ImportanceDEC:
+        filteredNoteArr = [...currentNoteArr].sort((a, b) => {
+          return a.important - b.important; 
+        });
+        break;
+      case FilterObj.DateASC:
+        filteredNoteArr = [...currentNoteArr].sort((a, b) => {
+          const dateA = new Date(a.dueDate);
+          const dateB = new Date(b.dueDate);
+          return dateA - dateB;
+        });
+        break;
+      case FilterObj.DateDEC:
+        filteredNoteArr = [...currentNoteArr].sort((a, b) => {
+          const dateA = new Date(a.dueDate);
+          const dateB = new Date(b.dueDate);
+          return dateB  - dateA;
+        });
+        break;
+      case FilterObj.TitleSort:
+        filteredNoteArr = [...currentNoteArr].sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
+        break;
+      default:
+        break;
+    }
+    setfilterFinalNote(filteredNoteArr);
+  }
+  
+
   return (
     <div>
-      <Home NoteDataArr={currentNoteArr} />
+      <Home NoteDataArr={filterFinalNote} />
     </div>
   );
 }
